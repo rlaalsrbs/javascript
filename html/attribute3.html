@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<script>
+		window.onload = function() {
+			const memNm = document.getElementById("memNm");
+			// data-속성명 -- 요소.dataset 
+			const dataSet = memNm.dataset;
+			console.log("price", dataSet.price);
+			console.log("num", dataSet.num);
+			
+			dataSet.consumer = 20000;
+			
+			// data-price 삭제
+			delete dataSet.price;
+		};
+		</script>
+	</head>
+	<body>
+		<input type="text" name="memNm" id="memNm" data-price='10000' data-num="10">
+	</body>
+</html>

@@ -1,0 +1,72 @@
+화살표 함수
+	- 함수를 축약해서 표현하는 형태
+	
+	function sum(a,b) {
+		
+		return a+b;
+	}
+	
+	const sum = (a,b) => a +b;
+	
+	const sum = (a,b) => {
+	
+		return a + b;
+	}
+	
+	인수가 하나만 있는 형태
+		- 소괄호 제거 가능
+	function print(x) {
+		return x + 10;
+	}
+	
+	const print = (x) => x + 10;
+	const print = x => x + 10;
+	
+	
+	인수가 없는 경우 -> 반드시 소괄호 필요
+	
+	function printHello() {
+		console.log("hello");
+	}
+	
+	const printHello = () => console.log("hello");
+	
+	
+	유의점 
+	1. 객체 안에서의 this 사용시 유의
+		객체의 일반 함수 - this를 결정하는 시점 -> 함수가 호출 될때
+			-> 현재 정의되어 있는 객체의 주소를 가리킨다
+			
+		객체의 화살표 함수 - this를 결정하는 시점 -> 함수를 정의 할때
+			(호출이 되기전에 이미 결정) - 최상위 객체(window)
+			-> this의 주소는 window 객체
+			
+			const person = {
+				age : 40,
+				gender : "F", 
+				walk : () => {
+					//person.age
+					console.log(this); // window 최상위 객체,
+					//console.log(this.age); undefined
+					console.log(person)
+				}
+			};
+			
+	2. 화살표 함수에는 arguments가 없다
+		const print = () => console.log(arguments); // 오류.. arguments 변수가 없다
+		
+		다만 가변 인수 ...인수는 사용할 수 있다.
+		const print = (...a) => console.log(a);
+		
+	3. 생성자 함수로 사용할 수 없다.
+		prototype.constructor 가 없어서 new를 통한 생성 불가
+		
+		
+	const reducer = (accumulator, currentValue) => accumulator + currentValue;
+	
+	==
+	
+	function reducer(accumulator, currentValue) {
+		
+		return accumulator + currentValue;
+	}

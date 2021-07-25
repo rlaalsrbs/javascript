@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<script>
+		window.onload = function() {
+			// children - 바로 아래 요소
+			const ul = document.querySelector("ul");
+			const list = ul.children;
+			for (let i = 0; i < list.length; i++) {
+				const li = list[i];
+				li.classList.add("children");
+			}
+				
+				
+			// parentElement - 바로 위 요소 
+			const menu3 = document.getElementById("menu3");
+			const parent = menu3.parentElement;
+			parent.classList.add("parent");
+			
+			
+			// firstElementChild
+			const firstChild = ul.firstElementChild;
+			firstChild.classList.add("first");
+			
+			// lastElementChild
+			const lastChild = ul.lastElementChild;
+			lastChild.classList.add("last");
+			
+			
+			// nextElementSibling - 다음 형제
+			const next = menu3.nextElementSibling;
+			next.classList.add("next");
+			
+			// previousElementSibling - 이전 형제
+			const previous = menu3.previousElementSibling;
+			previous.classList.add("previous");
+		};
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li>메뉴1</li>
+			<li>메뉴2</li>
+			<li id='menu3'>메뉴3</li>
+			<li>메뉴4</li>
+			<li>메뉴5</li>
+		</ul>
+	</body>
+</html>

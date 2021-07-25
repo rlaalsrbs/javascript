@@ -1,0 +1,51 @@
+for -> 배열 객체 
+
+for ~ in -> 객체의 속성과 값을 순회
+예) 
+const person = {
+    age : 40, 
+    name : "이름",
+    address : "주소",
+    hobby : "취미",
+};
+
+for (key in person) {
+    console.log("속성명", key, "속성값", person[key]);
+}
+
+
+in 연산자 -> 객체의 속성명이 존재하는지 체크 
+		      -> 존재 하면 true, 그렇지 않으면 false
+			  
+		예) 'age' in person -> person 객체에 age 속성이 정의되어 있는지..
+		
+		
+		
+JSON - JavaScript Object Notation - 자바스크립트 객체 표기법 
+{
+	속성 : 값,
+	속성 : 값,
+}
+
+
+this - 객체(인스턴스)의 주소를 내부에서 접근하는 변수
+	 - 객체(인스턴스) 내부의 속성에 접근할때 
+
+const person = {
+    age : 40,
+    name : "이름",
+    gender : "F",
+    study : function() {
+        //console.log(person.age);
+        console.log("age", this.age);
+    },
+    walk : function() {
+        //person.study();
+         this.study();
+    },
+};
+
+person.walk();
+
+// this와 person은 같은 객체(인스턴스) 주소를 가지고 있다 
+차이점은 this는 객체 내부에서만 접근이 가능 

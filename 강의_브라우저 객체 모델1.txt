@@ -1,0 +1,109 @@
+브라우저 - 자바스크립트 해석기 
+	- 자바스크립트 코어(ECMAScript)
+	- 브라우저 객체 모델(Browser Object Model - BOM)
+		window
+			- document 
+						- 문서(HTML 문서)
+						- 문서를 통제하고 다루는 객체 
+						- 태그 -> HTML 태그를 선택하고 조작하는 것
+						- 선택
+						
+			- location 
+					- 웹브라우저의 URL의 정보 또는 통제를 위한 객체 
+					console.dir(window.location);
+					http -> 80포트 
+					https -> 443포트
+					
+					protocol -> 규약, 규칙, 의전 ... 
+								- http - 웹페이지 전송 규약
+							
+					.assign(url 주소) - URL 주소로 페이지 이동
+								.href 속성 - URL을 대입 하면 -> 페이지가 이동 
+								location.href="이동할 주소";
+								- 방문기록이 남는다 
+								
+					.reload() - 새로고침 
+					
+					.replace(url 주소) - URL 주소로 페이지가 치환(이동)
+										- 방문 기록이 남지 않는다
+					
+					
+			- history
+					- 방문기록과 관련된 객체 
+					.length - 방문한 웹사이트 갯수 
+					.scrollRestoration - auto(기본) 
+												- 페이지 이동 후 다시 뒤로 가기 했을때 현재 스크롤 위치 유지
+											  manual
+												- 페이지 이동 후 다시 뒤로 가기 했을때 현재 스크롤을 가장 상단으로 이동
+												history.scrollRestoration = "manual"; 
+					
+					.back()  - 뒤로가기 (1단계) - go(-1)
+					.forward() - 앞으로가기(1단계)  - go(1)
+					.go(숫자) - 여러 단계를 이동 할 수 있음
+							숫자 - 음수 -> 뒤로가기
+							숫자 - 양수 -> 앞으로가기
+							.go(-2) -> 뒤로 2단계 이동
+							.go(2) -> 앞으로 2단계 이동 
+			 
+			
+			- screen 
+					- 브라우저의 문서가 출력되는 화면과 관련된 객체 
+					console.dir(window.screen);
+					landscape -> 가로가 긴 경우
+					portrait -> 세로로 긴 경우
+					
+			- navigator 
+					- 실행되고 있는 브라우저의 환경에 대한 정보
+					console.dir(window.navigator);
+					
+			
+			window. -> 생략 가능 
+			
+			
+			window
+				.alert("메세지") -- 알림 메세지 - 확인
+				.confirm("메세지") -- 진행 여부를 확인 할때 메세지 - 확인, 취소 
+											- 확인버튼 클릭 -> true 
+											- 취소버튼을 클릭 -> false
+				.prompt("메세지", "기본값") 
+										-- 사용자가 값을 입력하도록 대기하는 창
+										-- 사용자가 글을 입력하고 확인 -> 반환
+										
+				실행을 지연	
+						- 지연시간 - 밀리초(1000 - 1초)
+						.setTimeout(function() {
+							// 실행될 부분
+						}, 지연시간);
+						
+						5초 지연 실행 
+						.setTimeout(function() {
+							
+						}, 5000);
+						
+				
+					- 실행 지연 취소 
+						- clearTimeout
+								- 취소를 하려면 setTimeout으로 설정된 함수 실행부분 주소를 알아야 한다.
+								- 변수에 대입을 해줘야 한다
+				
+
+				반복 실행
+					1000 -> 1초 단위로 반복 실행, 2000 - 2초 단위로 반복 실행
+					.setInterval(function() {
+						// 반복 실행 영역 
+					}, 반복 실행 주기 - 밀리초);
+					
+					
+					- 반복 실행 취소
+					   clearInterval
+								- 취소를 하려면 setInterval로 설정된 함수 실행 부분의 주소를 알아야 한다
+								- 변수에 대입을 해줘야 한다
+								
+					const interval = setInterval(function() {
+						const date = new Date();
+						console.log(date);
+					}, 1000);
+
+					setTimeout(function() {
+						clearInterval(interval);
+					}, 5000);

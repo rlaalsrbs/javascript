@@ -1,0 +1,80 @@
+window
+	- document(Document Object Model - DOM)
+			- 문서를 다루는 역할(HTML)
+			- 각종 태그
+			
+			DOMContentLoaded - DOM 트리 구축 완료 후 발생하는 이벤트
+			Load  - DOM 트리 구축 완료 후 각종 리소스(이미지, 비디오, 내부 iframe, 외부 css, 외부 js등 외부 자원)가 로드가 완료 되면 발생하는 이벤트
+			
+			DOMContentLoaded 이벤트가 발생하기전에는 DOM 트리 구축이 안된 상태
+			-> HTML 각 태그를 읽을 수 있는 상태 X
+			-> 선택할 수 있는 대상이 없다
+			
+			script 태그 속성 - defer  -> 스크립트 태그 안쪽 내용을 DOMContentLoaded 이벤트 발생 후에 실행 하겠다
+											<script defer src="dom_test.js"></script>
+							     - async 
+								 
+		
+			- HTML 요소를 선택하는 방법
+				- HTMLCollection, NodeList 
+				
+				1) 아이디 속성으로 선택하는 방법 - 1개만 선택 
+					document.getElementById("아이디명");
+				
+				2) 클래스 속성으로 선택하는 방법 - 여러개 선택
+					document.getElementsByClassName("클래스명");
+					
+				3) 태그 이름으로 선택하는 방법 - 여러개 선택
+					document.getElementsByTagName("태그 이름"); 
+					
+				4) name 속성명으로 선택하는 방법
+					document.getElementsByName("name 속성명");
+					
+				5) CSS 선택자 방식으로 선택하는 방법
+					document.querySelector("CSS 선택자"); 
+							- 매칭된 가장 첫번째 요소 1개만 선택 
+							
+					document.querySelectorAll("CSS 선택자");
+							- 매칭된 모든 요소가 선택 
+							
+			- 선택한 요소(Node)의 속성(Attribute)
+					.getAttribute("속성명") - 속성에 대한 값이 반환
+					.setAttribute("속성명", "값"); - 속성에 대한 값을 지정하거나 변경 
+					.removeAttribute("속성명") - 속성 제거 
+					
+					많이 사용되는 일부 속성은 선택한 요소의 하위 속성으로 바로 접근이 가능(getAttribute 사용하지 않아도 된다)
+					id 속성
+					class - className 속성
+					style - CSS 스타일을 적용하는 속성
+					
+					클래스 속성은 별로 관리 객체
+					선택 요소.classList 
+										.add -> 클래스 추가
+										.remove -> 클래스 제거
+										.toggle -> 클래스가 없으면 추가, 있으면 제거
+										.contains -> 클래스가 포함이 되어 있는지 체크 
+										
+					
+					속성명 
+						href, type, src ... --> 이미 기능적으로 구현되어 있는 속성
+						
+						만약 href 속성을 기능이 아니라 단순 사용자 정보 추가 사용
+						-> 기능에 영향을 준다 
+						
+						
+						사용자가 추가하는 추가 정보 속성명 규칙
+						data-속성명
+						price --> data-price='10000'
+						src --> data-src=""
+						
+						data-속성명 형태 -> 속성명으로 접근
+						
+						.dataset -> data-속성명을 쉽게 접근, 변경, 삭제 
+								  -> 속성 접근 - 마침표 연산자(.), 대괄호 - 객체 접근방식 
+								  -> 속성 추가 - 없는 속성에 값을 대입
+												   - 태그의 속성이 data-속성명으로 자동 추가
+								  -> 속성 변경 - 있는 속성에 값을 대입
+								  -> 속성 삭제 
+												 delete 연산자 
+												 delete 속성명  -> data-속성명 -> 제거 
+												

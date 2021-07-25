@@ -1,0 +1,13 @@
+내장 생성자
+	자바스크립트 코어(ECMAScript)
+	Object  - 모든 객체가 상속 하고 있는 생성자
+	String - 문자를 다루는 메서드, 속성을 가지고 있는 생성자 
+	Number - 숫자 
+	Boolean - 논리값
+	Array - 배열 객체 - 여러 자료를 담을 때 쓰는 객체
+	Date - 날짜, 시간을 다루는 생성자
+	
+	... RegExp, Math, Promise, ... WebWorker
+	
+	
+	https://developer.mozilla.org/ko/

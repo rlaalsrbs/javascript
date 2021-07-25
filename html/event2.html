@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script>
+		window.onload = function() {
+			const click = document.getElementById("click");
+			
+			// 속성에 이벤트 핸들러를 대입 하는 방법
+			click.onclick = function() {
+				alert("클릭 첫번째!");
+			};
+			
+			click.onclick = function() {
+				alert("클릭 두번째!");
+			};
+			
+			// click.onclick은 마지막에 대입된 함수(이벤트 핸들러)의 주소만 가지고 있다 
+			// 마지막 대입된 이벤트 핸들러만 실행
+			
+			
+			// addEventListener를 사용하여 이벤트를 등록
+			const click2 = document.getElementById("click2");
+			click2.addEventListener("click", function() {
+				alert("클릭 첫번째!");
+			});
+			
+			click2.addEventListener("click", function() {
+				alert("클릭 두번째!");
+			});
+		};
+		</script>
+	</head>
+	<body>
+		<button id='click'>클릭1</button>
+		<button id='click2'>클릭2</button>
+	</body>
+</html>

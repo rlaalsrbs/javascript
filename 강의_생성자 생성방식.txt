@@ -1,0 +1,55 @@
+객체 생성방식 
+1. 생성자 생성 -> new 연산자를 통해 객체(인스턴스) 생성
+	function Person() {
+		this.age = 40;
+		this.gender = "F";
+		this.walk = function() {
+			console.log("걷기");
+		}
+	}
+	
+	const person = new Person();
+	
+2. { }로 객체를 생성 하는 방식 (이미 생성된 객체)
+const person = {
+	age : 40,
+	gender : "F",
+	walk : function() {
+		console.log("걷기");
+	}
+};
+
+const person = new Object();
+person.age = 40;
+person.gender = "F";
+person.walk = function() {
+	console.log("걷기");
+};
+
+
+
+생성자 구조
+생성자 함수 
+	- prototype 속성
+		- constructor 속성  - 생성자를 정의한 원형
+		- __proto__ - 객체의 상속 관계(링커)
+		
+
+	constructor의 생성자 원형이 new연산자로 복사 생성
+			- 정의된 함수가 10개라고 가정 
+			- 객체를 10개 생성
+					-> 동일한 함수각 각각 10개씩 존재
+					-> 메모리에 부담
+					
+					함수는 prototype 속성에 정의 
+						-> 공동 테이터 영역에 생성 -> 1개 전체 객체 공유 
+					    -> 인스턴 생성시 메모리 절약이 가능
+					
+					function Person() {
+						this.age = 40;
+						this.gender = "F";
+					}
+
+					Person.prototype.walk = function() {
+						console.log("걷기");
+					};

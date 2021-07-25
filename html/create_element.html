@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<script>
+		window.onload = function() {
+			const html = document.getElementById("html");
+		
+			const button = document.createElement("button");
+			const text = document.createTextNode("클릭!");
+		
+			// appendChild 
+			button.appendChild(text);
+			
+			// 속성 추가 
+			button.id = "button";
+			button.className = "class1 class2";
+			button.style = "background-color: red";
+			
+			button.setAttribute("price", 10000);
+			
+			// data- 형식의 속성
+			button.dataset.consumer = 20000; // data-consumer='20000';
+			
+			html.appendChild(button);
+			
+		};
+		</script>
+	</head>
+	<body>
+		<div id='html'></div>
+		
+		
+	</body>
+</html>

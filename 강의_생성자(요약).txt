@@ -1,0 +1,58 @@
+생성자
+	- 객체를 생성하는 틀
+	- 객체를 생성하기 위한 속성, 메서드의 틀을 제공
+	
+	function 생성자명(....) {
+		this.속성명 = "값"; // 원시타입 + 객체 ... 
+	}
+	
+	객체를 생성하기 위한 연산자
+	new 
+	
+	데이터 영역 
+	스택영역 
+	힙영영역
+	
+	자바스크립트 - 원시타입 + 객체(함수도 객체)
+	
+	function Person(name, age, gender) {
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+		this.study = function() {
+			console.log("공부한다");
+		};
+	}
+	
+	
+	
+	생성자의 구성
+		- prototype
+			- constructor - 생성자 함수의 원형 - new 연산자를 통해 생성이 가능 
+			- __proto__ -- 객체의 상속관계 
+			
+			
+	생성자에 정의된 함수가 10개 
+		- 객체를 10개 생성 -> 함수는 총 100개의 동일한 함수 복사
+		- 메모리의 낭비
+		- 데이터영역의 prototype에 정의하면 모든 객체가 공유
+			- 100개 아니라 10개만 공유
+			
+			
+	생성자
+		- 생성자명은 대문자로 시작
+			단어 첫글자는 대문자 -> 가장 첫글자는 대문자로 시작 - 파스칼케이스
+			function OrderProcess() {
+			
+			}
+		
+		- 함수명 소문자로 시작
+			단어 첫글자는 대문자 -> 가장 첫글자 소문자로 시작 - 카멜케이스
+			
+			function orderProcess() {
+			
+			}
+			
+			변수의 명도 카멜케이스 방식으로 정의하는 것을 권장
+			const orderProcess 
+		

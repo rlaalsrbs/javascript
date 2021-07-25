@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<script>
+		window.onload = function() {
+			const attr = document.getElementById("attribute");
+			attr.setAttribute("price", 10000); // 속성 설정, 변경 
+			
+			const num = attr.getAttribute("num"); // 속성 읽기
+			console.log("num", num);
+			
+			console.log(attr.num);
+			
+			attr.removeAttribute("num"); // 속성 제거
+			
+			// 아이디 속성 접근
+			console.log("id", attr.id);
+			/*
+			// 클래스 속성 접근 
+			attr.className = attr.className + " class5";
+			
+			// class2 값을 제거
+			let className = attr.className.split(" ");
+			for (let i = 0; i < className.length; i++) {
+				if (className[i] == 'class2') {
+					className.splice(i, 1);
+				}
+			}
+			
+			className = className.join(" ");
+			attr.className = className;
+			// 로직 구현이 복잡하다... 
+			
+			console.log("class", attr.className);
+			*/
+			
+			// 클래스 관리 객체 .classList 
+			const classList = attr.classList;
+			//console.log("classList", classList);
+			classList.remove("class2"); // class2 제거
+			classList.add("class4"); // class4 추가 
+			classList.toggle("class2"); // class2가 없으니깐 추가
+			
+			// contains 클래스 존재 여부 
+			if (classList.contains("class4")) {
+				console.log("class4가 존재");
+			} else {
+				console.log("class4가 미존재");
+			}
+			
+			// data-num, data-price 속성 접근 
+			const dataNum = attr.getAttribute("data-num");
+			const dataPrice = attr.getAttribute("data-price");
+			console.log("dataNum", dataNum);
+			console.log("dataPrice", dataPrice);
+			
+			console.log(attr);
+		};
+		</script>
+	</head>
+	<body>
+		<div id='attribute' class='class1 class2 class3' data-num='20' data-price='10000'>속성테스트</div>
+	</body>
+</html>

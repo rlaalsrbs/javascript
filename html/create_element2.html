@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<script>
+		window.onload = function() {
+			const ul = document.querySelector("ul");
+			const menu2 = document.getElementById("menu2");
+			
+			// removeChild
+			ul.removeChild(menu2);
+			
+			// 요소를 메뉴4 앞에 메뉴3-1로 추가 
+			const newLi = document.createElement("li");
+			const textLi = document.createTextNode("메뉴3-1");
+			newLi.appendChild(textLi);
+			newLi.id = "menu3_1";
+			
+			const menu4 = document.getElementById("menu4");
+			ul.insertBefore(newLi, menu4);
+			
+			// 메뉴5를 메뉴1로 변경 - replaceChild
+			const menu1 = document.getElementById("menu1");
+			const menu5 = document.getElementById("menu5");
+			
+			// 기존 메뉴5가 제거 되고, menu1 위치에 menu5가 치환
+			//ul.replaceChild(menu5, menu1);
+			
+			// 기존 메뉴5가 제거 X -> 새로 요소 생성 후 치환
+			const _menu5 = document.createElement("li");
+			const _menu5Text = document.createTextNode("메뉴5");
+			_menu5.appendChild(_menu5Text);
+			
+			ul.replaceChild(_menu5, menu1);
+		
+			// innerHTML  - ul 하위의 HTML 추출 
+			console.log("innerHTML", ul.innerHTML);
+			
+			// innerHTML에 값 대입 
+			ul.innerHTML = "<h1>innerHTML</h1>";
+			
+			// innerText
+			const h1 = document.querySelector("h1");
+			const h1Text = h1.innerText;
+			console.log("h1Text", h1Text);
+			
+			h1.innerText = "changed InnerText";
+		};
+		</script>
+	</head>
+	<body>
+		<ul>
+			<li id='menu1'>메뉴1</li>
+			<li id='menu2'>메뉴2</li>
+			<li id='menu3'>메뉴3</li>
+			<li id='menu4'>메뉴4</li>
+			<li id='menu5'>메뉴5</li>
+		</ul>
+	</body>
+</html>

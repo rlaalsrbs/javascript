@@ -1,0 +1,35 @@
+요소 생성
+	document.createElement("태그명")
+	document.createTextNode("태그에 들어갈 문구");
+	
+	부모노드.appendChild(삽입할 노드);
+	예) button.appendChild(text);
+	
+	부모노드.insertBefore(추가할 노드, 위치할 기준 노드);
+	예)
+			// 요소를 메뉴4 앞에 메뉴3-1로 추가 
+			const newLi = document.createElement("li");
+			const textLi = document.createTextNode("메뉴3-1");
+			newLi.appendChild(textLi);
+			newLi.id = "menu3_1";
+			
+			const menu4 = document.getElementById("menu4");
+			ul.insertBefore(newLi, menu4);
+	
+	// 제거
+	부모노드.removeChild(삭제할 노드); 
+	예) ul.removeChild(menu2);
+	
+	// 변경
+	부모노드.replaceChild(변경될 노드, 변경할 노드); 
+			변경할 노드 -> 변경될 노드
+			
+			
+	요소.innerHTML
+				- HTML 태그 값을 대입 하면 요소 하위에 추가 
+				- 속성을 읽게 되면 요소 내부의 HTML을 가져온다
+				
+	요소.innerText 
+				- 내부의 텍스트를 추출 
+				- 속성을 대입 -> 변경
+    

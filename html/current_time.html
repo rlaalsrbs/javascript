@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<script>
+		window.onload = function() {
+			/**
+				Date 생성자
+					.getHours()
+					.getMinutes()
+					.getSeconds();
+				
+				innerHTML - 텍스트, HTML 추가
+				setInterval
+			*/
+			const timer = document.getElementById("timer");
+			let interval;
+			
+			// 시작 버튼 클릭 
+			document.getElementById("start").onclick = function() {
+				interval = setInterval(function() {
+					const date = new Date();
+					const hour = date.getHours();
+					const min = date.getMinutes();
+					const sec = date.getSeconds();
+					
+					const time = `${hour}:${min}:${sec}`;
+					
+					timer.innerHTML = time;
+				}, 1000);
+			};
+			
+			// 종료 버튼 클릭
+			document.getElementById("stop").onclick = function() {
+				clearInterval(interval);
+			};
+		};
+		</script>
+	</head>
+	<body>
+		<div id='timer'></div>
+		<button id='start'>시작</button>
+		<button id='stop'>정지</button>
+	</body>
+</html>

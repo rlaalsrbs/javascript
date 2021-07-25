@@ -1,0 +1,135 @@
+함수
+
+function 함수명 (......) {
+	// 연산이 처리 되는 부분 
+	
+	return 반환값;
+}
+
+function sum(x) {
+	const result = x * 2 + 2;
+	
+	return result;
+}
+
+함수를 사용하는 방법?(호출)
+함수명(); 
+함수명(값, 값 ...);
+
+변수의 끌어올림 
+
+함수의 끌어 올림 - 함수의 정의된 위치 상관 없이 쓸 수 있다 
+
+함수의 인수 -> 생략이 가능
+반환값 -> 생략이 가능 
+		  -> 반환값을 생략하게 되면 
+			   return undefined; 가 자동 추가 
+			   
+
+함수가 호출 되는 메모리 영역
+
+메모리
+1. 데이터영역  - 작성한 소스 ... 
+2. 스택영역  - 함수가 실행이 되면 올라가는 영역 
+3. 힙영역 - 객체를 생성하면 올라가는 영역
+
+
+전역변수 
+- 함수 내, 외부에서 모두 유효한 변수 
+
+지역변수
+- 함수 안에서만 유효한 변수 
+
+function sum() {
+	const a = 10;
+	const b = 20;
+	
+}
+
+
+함수 내부에 정의된 a,b -> 함수가 실행되는 동안만 메모리에 있으므로 
+						       -> 함수의 실행이 끝나면 메모리에 제거가 된다
+							   -> 함수가 실행되는 동안에만 유효한 변수
+							   
+
+자바스크립트 함수 -> 1급객체
+	1. 인수를 함수로 쓸 수 있고 
+		
+	
+	2. 함수를 반환 값으로 쓸 수 있다
+	
+
+
+function 브라우저의 메인함수() {
+	const global = "global";
+	
+	function testFunc() {
+		const local = "local";
+	}
+}
+
+ 
+ 일반적으로 선언하는 변수는 스택 메모리 영역에 정의 된다
+ 
+ function innerFunc() {
+ 
+ }
+ --> 함수의 끌어올림 되므로 호출 위치는 상관 없다
+ 
+ const innerFunc = function() {
+ 
+ };
+ 
+ --> 함수의 끌어올림이 안된다, 호출은 바로 다음 부터 가능
+ 
+  1. const innerFunc; 선언 
+  2. window.innerFunc = undefined;
+  3. const innerFunc = function() { } 함수가 대입
+  
+2.  함수를 즉시 실행 하는 방법
+	(function() {
+		// 즉시 실행할 영역
+	})();
+
+	1) 인수 사용 가능 
+		(function(a,b) {
+		
+		})(2,3);
+		
+	2) 반환값 사용이 가능 
+		(function(a,b) {
+			return a + b;
+		})(2,3);
+		
+3. 가변 인수
+	1) 함수안에는 arguments 변수가 존재
+	- 인수로 사용된 값을 배열 객체로 보관
+	
+	function testFunc() {
+		let str = "";
+		for(let i = 0; i < arguments.length; i++) {
+			str += arguments[i] + ",";
+		}
+
+		return str;
+	}
+	
+	testFunc(1,2,3,4,5,6,7,8);
+	
+	testFunc(1,2,3);
+	
+	2) ...인수 (마침표 3개)
+		- 가변인수(개수 상관 없이 입력할 수 있는 인수)
+		
+		function testFunc(...str) {
+			console.log(str);
+		}
+		
+		testFunc(1,2,3,4);
+		
+		function testFunc(separator, ...str) {
+			console.log(separator);
+			console.log(str);
+		}
+		
+		testFunc("/", "apple", "mango", "orange", "banana");

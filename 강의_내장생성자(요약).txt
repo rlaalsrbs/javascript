@@ -1,0 +1,28 @@
+브라우저 - 자바스크립트 해석기(자바스크립트 런타임)
+	- 자바스크립트 코어(ECMAScript)
+			- 자바스크립트 기본 문법, 내장 생성자 등등 - 자바스크립트를 구성하는 핵심
+			- Object 
+			- String 
+			- Number
+			- Boolean 
+			- Array 
+			- Date
+			- Math 
+			
+			- Function
+			- .. Promise 
+			- XMLHttpRequest .. 
+			- WebWork ...
+			
+	- 브라우저 객체모델 - 브라우저에만 있는 기능 모음
+		window - 최상위 객체
+			 - document  
+						- HTML 문서를 다루는 객체 - 태그를 선택하고. 삭제, 추가, 스타일 변경 등등
+			 - location 
+						- URL을 다루는 객체
+			 - history
+						- 방문기록을 다루는 객체
+			 - screen
+						- 브라우의 화면(사이즈)과 관련된 객체 
+			 - navigator
+						- 브라우저가 실행되는 환경과 관련된 객체

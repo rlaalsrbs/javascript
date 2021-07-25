@@ -1,0 +1,28 @@
+1) 이벤트 속성(on이벤트명)에 대입하는 방법 
+		click.onclick = function() {
+			alert("클릭 두번째!");
+		};
+		
+2) 이벤트 리스너 메서드(addEventListener)에 등록하는 방법
+
+	요소객체.addEventListener("이벤트명", 이벤트 핸들러 함수, 캡쳐링 여부 - 기본값 false - 버블링);
+	
+	캡쳐링 
+	- true - 캡쳐링 단계에서 -> 이벤트 전파
+	- false - 버블링 방식 -> 이벤트 전파
+	
+	이벤트 핸들러에 인수로 전달되는 이벤트 객체
+	addEventListener("click", function(event) {
+	
+	});
+	
+	event 객체 -> 이벤트가 발생 요소에 대한 정보
+					event.target - 이벤트가 발생한 요소
+					-> 나머지 속성 
+						console.log(event);
+					
+				  -> 이벤트 통제와 관련된 메서드를 제공
+				  -> stopPropagation() -> 이벤트 전파 방지
+				  -> preventDefault() -> 기본 동작 방지(a - 링크 이동 -> 차단)
+				  
+	

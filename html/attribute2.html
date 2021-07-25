@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset='utf-8'>
+		<style>
+			.box {
+				width: 200px;
+				height: 200px;
+				background-color: orange;
+			}
+			
+			.dn {
+				display: none;
+			}
+		</style>
+		<script>
+		window.onload = function() {
+			document.getElementById("show_toggle").onclick = function() {
+				const box = document.querySelector(".box");
+				box.classList.toggle("dn");
+			};
+		};
+		</script>
+	</head>
+	<body>
+		<div class='box'></div>
+		<button id='show_toggle'>보이거나 감추거나</button>
+	</body>
+</html>

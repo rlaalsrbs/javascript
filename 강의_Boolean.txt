@@ -1,0 +1,12 @@
+Boolean 
+	- 논리값과 관련된 생성자
+	Boolean 생성자를 함수 Boolean()
+	
+	문자 -> 논리값
+	--> 원래 원시타입인 boolean 값  true, false로 변환
+	
+	false로 인식하는 경우
+		false, 0, '', null, undefined  
+		
+	true로 인식하는 경우
+		false로 인식하는 경우를 제외한 모든 값 

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<script>
+		window.onload = function() {
+			const golink = document.getElementById("golink");
+			golink.addEventListener("click", function(event) {
+				event.preventDefault(); // a태그의 기본 동작 - 링크 이동 -> 차단
+				alert("클릭 하였습니다!");
+				
+				// event.target - 이벤트가 발생한 요소
+				event.target.style="border: 1px solid red";
+				
+				console.log(event);
+			});
+		};
+		</script>
+	</head>
+	<body>
+		<a href="https://www.naver.com" id='golink'>네이버</a>
+	</body>
+</html>
